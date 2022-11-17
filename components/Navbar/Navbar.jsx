@@ -3,25 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 import LazyNavbarDropDownMenu from "./DropDownMenu";
-const navbarTabTitles = [
-  "Explore",
-  "Learn",
-  "Individuals",
-  "Businesses",
-  "Company",
-];
-import { company } from "../../public/assets/data/companyTabData.json";
-import { businesses } from "../../public/assets/data/businessesTabData.json";
-import { individuals } from "../../public/assets/data/individualsTabData.json";
-import { learn } from "../../public/assets/data/learnTabData.json";
-import { explor } from "../../public/assets/data/explorTabData.json";
-import { icon } from "../../public/assets/data/DropdownMenuIcons.json";
-import { DropDownMobileSize } from "./DropDownMobileSize";
+import { navbarTabTitles } from "../../public/assets/data/navbarTabTitles";
+import { company } from "../../public/assets/data/companyTabData";
+import { businesses } from "../../public/assets/data/businessesTabData";
+import { individuals } from "../../public/assets/data/individualsTabData";
+import { learn } from "../../public/assets/data/learnTabData";
+import { explor } from "../../public/assets/data/explorTabData";
+import { icon } from "../../public/assets/data/DropdownMenuIcons";
+import DropDownMobileSize from "./DropDownMobileSize";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const catagories = [explor, learn, individuals, businesses, company];
-  // console.log(catagories[1])
+
   return (
     <nav className="flex relative h-20 justify-center  border-b-2 border-teal-600    container mx-auto px-5 py-5">
       {/*========================== website logo START ==========================*/}
