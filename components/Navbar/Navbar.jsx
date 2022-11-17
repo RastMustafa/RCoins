@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import LazyNavbarDropDownMenu from "./DropDownMenu";
+const navbarTabTitles = [
+  "Explore",
+  "Learn",
+  "Individuals",
+  "Businesses",
+  "Company",
+];
+import { company } from "../../public/assets/data/companyTabData.json";
+import { businesses } from "../../public/assets/data/businessesTabData.json";
+import { individuals } from "../../public/assets/data/individualsTabData.json";
+import { learn } from "../../public/assets/data/learnTabData.json";
+import { explor } from "../../public/assets/data/explorTabData.json";
+import { icon } from "../../public/assets/data/DropdownMenuIcons.json";
+import { DropDownMobileSize } from "./DropDownMobileSize";
+
+function Navbar() {
+  const [showMenu, setShowMenu] = useState(false);
+  const catagories = [explor, learn, individuals, businesses, company];
+  // console.log(catagories[1])
+  return (
+    <nav className="flex relative h-20 justify-center  border-b-2 border-teal-600    container mx-auto px-5 py-5">
+      {/*========================== website logo START ==========================*/}
+      <div className="w-20 top-2 mr-2  left-0 absolute">
+        <Link href="/">
+          <img src="../../assets/imgs/logo-no-background.png" alt="" />
+        </Link>
+      </div>
+      {/******************************** website logo END ******************************* */}
+
+      {/*========================== navbar catagories on large screen START ==========================*/}
+      <ul className="hidden lg:flex   items-center h-8 space-x-5 ">
+        {catagories.map((item, i) => {
+          return (
+            <LazyNavbarDropDownMenu
+              key={`${item}_${i}`}
+              explorTabData={catagories[i]}
+              title={navbarTabTitles[i]}
+            />
+          );
+        })}
+      </ul>
+      {/******************************** navbar catagories on large screen END ********************************/}
+
+      {/*========================== login Btn START ==========================*/}
+      <div className="hidden  lg:block top-6 w-20  mr-12  right-0 absolute">
+        <button className="border-2 border-emerald-600 rounded font-semibold font-sans   hover:bg-emerald-700 hover:text-white px-8 text-lg">
+          Login
+        </button>
+      </div>
+      {/******************************** login Btn END ********************************/}
+
+      {/*========================== dropdown section on mobile screen  START ==========================*/}
+      <div className="flex lg:hidden ">
+        <a href="#" className="flex-none absolute right-0 px-5 z-30">
+          <div
+            onClick={() => setShowMenu(!showMenu)}
+            className="text-emerald-600  w-full font-semibold tracking-wide hover:bg-gray-900 hover:bg-opacity-30 rounded px-2 py-2"
+          >
+            {/* dropdown logo start */}
+            <span className=" block w-6 border-b-2  border-emerald-600 "></span>
+            <span className=" block  my-1 w-6 border-b-2 border-emerald-600 "></span>
+            <span className=" block  w-4 border-b-2 border-emerald-600 "></span>
+            {/* dropdown logo end */}
+          </div>
+        </a>
+        <div className="absolute top-0 right-0 z-10 h-screen w-full transition"></div>
+        {showMenu ? (
+          <DropDownMobileSize navbarTabTitles={navbarTabTitles} icon={icon} />
+        ) : (
+          ""
+        )}
+      </div>
+      {/******************************* dropdown section on mobile screen END ********************************/}
+    </nav>
+  );
+}
+
+export default Navbar;
