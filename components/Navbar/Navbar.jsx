@@ -21,7 +21,7 @@ function Navbar() {
       {/*========================== website logo START ==========================*/}
       <div className="w-20  rounded-full -z-10  top-4 mr-2  left-0 absolute">
         <Link href="/">
-          <Image  width={120} height={75} src="/RcoingLogo.png" alt="" />
+          <Image width={120} height={75} src="/RcoingLogo.png" alt="" />
         </Link>
       </div>
       {/******************************** website logo END ******************************* */}

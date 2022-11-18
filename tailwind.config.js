@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    backgroundImage: {
+      'hero': "url('/bg.png')",
+      'hero2': "url('/bg-2.png')",
+      'footer-texture': "url('/img/footer-texture.png')",
+    }
   },
   plugins: [],
 }
