@@ -19,9 +19,9 @@ function Navbar() {
   return (
     <nav className="flex relative h-20 justify-center  border-b-2 border-teal-600    container mx-auto px-5 py-5">
       {/*========================== website logo START ==========================*/}
-      <div className="w-20 top-2 mr-2  left-0 absolute">
+      <div className="w-20  rounded-full -z-10  top-4 mr-2  left-0 absolute">
         <Link href="/">
-          <img src="../../assets/imgs/logo-no-background.png" alt="" />
+          <Image  width={120} height={75} src="/RcoingLogo.png" alt="" />
         </Link>
       </div>
       {/******************************** website logo END ******************************* */}
