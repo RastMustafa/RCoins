@@ -1,9 +1,13 @@
-
 import Navbar from "../components/Navbar/Navbar";
+import MainSection from "../components/Homepage/MainSection";
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      <div className="font-display">
+        <Navbar />
+        <MainSection />
+      </div>
+      <div>hello</div>
     </div>
   );
 }

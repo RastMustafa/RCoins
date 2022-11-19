@@ -4,16 +4,16 @@ import Image from "next/image";
 function DropDownMobileSize({ navbarTabTitles, icon }) {
   return (
     <>
-      <div className="absolute right-0 z-20 w-full px-5 mt-16 transition">
-        <ul className="flex flex-col bg-white w-full rounded shadow-md overflow-hidden">
+      <div className="absolute font-dislpay right-0 z-20 w-full px-5 mt-16 transition">
+        <ul className="flex  flex-col bg-white w-full rounded shadow-md overflow-hidden">
           <li className="flex">
-            <h3 className="flex flex-1 text-emerald-600 font-semibold px-5 py-4">
-              Navigation
+            <h3 className="flex flex-1 font-display text-emerald-600 font-semibold px-5 py-4">
+              <strong>Navigation</strong> 
             </h3>
           </li>
-          <li className="flex border-t ">
+          <li className="flex border-t  font-display w-full">
             <Link href="/login" className="">
-              <a className="flex gap-6 text-lg text-emerald-600 hover:bg-gray-200 font-semibold px-8 py-4">
+              <a className="flex gap-6 text-lg w-full text-emerald-600 hover:bg-gray-200 font-semibold px-8 py-4">
                 <Image
                   width={30}
                   height={30}
@@ -28,12 +28,12 @@ function DropDownMobileSize({ navbarTabTitles, icon }) {
           {navbarTabTitles.map((n, i) => {
             return (
               <div key={n}>
-                <li className="flex ">
+                <li className="flex font-display ">
                   <Link
                     href="'/'+ navbarTabTitles[n].toLocaleLowerCase()"
                     className=""
                   >
-                    <a className="flex  gap-6 text-lg text-emerald-600 hover:bg-gray-200 font-semibold px-8 py-4">
+                    <a className="flex w-full gap-6 text-lg text-emerald-600 hover:bg-gray-200 font-semibold px-8 py-4">
                       <Image
                       width={30}
                       height={30}

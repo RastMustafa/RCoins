@@ -17,17 +17,17 @@ function Navbar() {
   const catagories = [explor, learn, individuals, businesses, company];
 
   return (
-    <nav className="flex relative h-20 justify-center  border-b-2 border-teal-600    container mx-auto px-5 py-5">
+    <nav className="flex font-header tracking-widest		 relative h-20 justify-center   border-b-2 border-teal-600    container mx-auto px-5 py-5">
       {/*========================== website logo START ==========================*/}
       <div className="w-20  rounded-full -z-10  top-4 mr-2  left-0 absolute">
         <Link href="/">
-          <Image  width={120} height={75} src="/RcoingLogo.png" alt="" />
+          <Image width={120} height={75} src="/RcoingLogo.png" alt="" />
         </Link>
       </div>
       {/******************************** website logo END ******************************* */}
 
       {/*========================== navbar catagories on large screen START ==========================*/}
-      <ul className="hidden lg:flex   items-center h-8 space-x-5 ">
+      <ul className="hidden lg:flex my-auto   items-center h-8 space-x-5 ">
         {catagories.map((item, i) => {
           return (
             <LazyNavbarDropDownMenu
@@ -42,14 +42,14 @@ function Navbar() {
 
       {/*========================== login Btn START ==========================*/}
       <div className="hidden  lg:block top-6 w-20  mr-12  right-0 absolute">
-        <button className="border-2 border-emerald-600 rounded font-semibold font-sans   hover:bg-emerald-700 hover:text-white px-8 text-lg">
+        <button className="border-2 font-display border-emerald-600 rounded font-semibold font-sans   hover:bg-emerald-700 hover:text-white px-8 text-lg">
           Login
         </button>
       </div>
       {/******************************** login Btn END ********************************/}
 
       {/*========================== dropdown section on mobile screen  START ==========================*/}
-      <div className="flex lg:hidden ">
+      <div className="flex lg:hidden  bg-red-400">
         <a href="#" className="flex-none absolute right-0 px-5 z-30">
           <div
             onClick={() => setShowMenu(!showMenu)}
@@ -62,12 +62,14 @@ function Navbar() {
             {/* dropdown logo end */}
           </div>
         </a>
-        <div className="absolute top-0 right-0 z-10 h-screen w-full transition"></div>
+        <div className="w-full">
         {showMenu ? (
           <DropDownMobileSize navbarTabTitles={navbarTabTitles} icon={icon} />
         ) : (
           ""
         )}
+
+        </div>
       </div>
       {/******************************* dropdown section on mobile screen END ********************************/}
     </nav>

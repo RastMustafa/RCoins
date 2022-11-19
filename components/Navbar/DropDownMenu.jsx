@@ -19,7 +19,7 @@ function DropDownMenu({ title, explorTabData }) {
             }, 200);
           }
         }}
-        className="text-gray-900  hover:border-b-2  border-emerald-600 z-10  ml-4 font-quicksand cursor-pointer relative  hover:text-emerald-800 text font-semibold py-1 px-3 "
+        className="text-gray-900 text-xl  hover:border-b-2  border-emerald-600 z-10  ml-4  cursor-pointer relative  hover:text-emerald-800 text font-semibold py-1 px-3 "
       >
         {title}
       </div>
@@ -42,7 +42,7 @@ function DropDownMenu({ title, explorTabData }) {
               return (
                 <div
                   key={item.title}
-                  className=" hover:bg-gray-200 rounded-lg transform transition-all duration-1500 ease-out  sm:w-[20rem] lg:min-w-[30rem] flex  flex-row  my-2 items-center p-2 gap-4 "
+                  className=" hover:bg-gray-200 rounded-lg font-display transform transition-all duration-1500 ease-out  sm:w-[20rem] lg:min-w-[30rem] flex  flex-row  my-2 items-center p-2 gap-4 "
                 >
                   <img
                     className=" border-2 w-12  p-1 rounded-full"
@@ -52,8 +52,8 @@ function DropDownMenu({ title, explorTabData }) {
                   <div className=" ">
                     <Link href="'/'+item.title.toLocaleLowerCase()">
                       <>
-                        <h1 className="text-lg">{item.title}</h1>
-                        <p className="text-sm">{item.description}</p>
+                        <h1 className="text-lg  font-semibold ">{item.title}</h1>
+                        <p className="text-sm font-display">{item.description}</p>
                       </>
                     </Link>
                   </div>
