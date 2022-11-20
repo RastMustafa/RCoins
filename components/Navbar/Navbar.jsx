@@ -42,7 +42,7 @@ function Navbar() {
 
       {/*========================== login Btn START ==========================*/}
       <div className="hidden  lg:block top-6 w-20  mr-12  right-0 absolute">
-        <button className="border-2 font-display border-emerald-600 rounded font-semibold font-sans   hover:bg-emerald-700 hover:text-white px-8 text-lg">
+        <button className="border-2 font-display border-emerald-600 rounded font-semibold font-sans   hover:bg-black transition-all duration-200  hover:text-white px-8 text-lg">
           Login
         </button>
       </div>
