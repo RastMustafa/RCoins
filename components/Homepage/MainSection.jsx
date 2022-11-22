@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 function MainSection() {
   return (
-    <div className="  font-header  grid grid-cols-12 pt-8 sm:pt-12 bg-opacity-80	   container mx-auto  py-5">
-      <div className=" col-span-12   md:col-span-6 sm:pl-4 pl-12  flex flex-col px-4    w-full">
+    <div className="  font-header  grid grid-cols-12 pt-8 md:pt-24 	   container mx-auto  ">
+      <div className=" col-span-12    md:col-span-6 sm:pl-4 pl-12  flex flex-col px-4    w-full">
         <h1 className="xl:text-6xl tracking-[0.25rem]	  xs:bg-black  sm:mx-12 sm:text-4xl  lg:text-4xl  md:text-[1.7rem] text-2xl text-left text-emerald-600 font-semibold leading-sung sm:mt-12 lg::mt-24   ">
           Your Gateway To Exchange{" "}
           <span className=" text-black">Cryptocurrency</span>
@@ -17,7 +17,7 @@ function MainSection() {
           </button>
         </div>
       </div>
-      <div className="img xl:p-0 mt-6 sm:mt-0 px-20 max-w-[30rem] justify-self-center lg:px-12 md:px-8  col-span-12  md:col-span-6 	">
+      <div className="img xl:p-0 mt-12 sm:mt-0 px-8 max-w-[30rem] justify-self-center lg:px-12 md:px-8  col-span-12  md:col-span-6 	">
         <img src="/heroImage.png" alt="" />
       </div>
     </div>
