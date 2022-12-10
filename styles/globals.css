@@ -1,7 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Teko&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Teko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Teko&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td {
+  height: 6rem;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+  padding: 8px;
+}
+
+thead {
+  height: 4rem;
+  border-bottom: 1px solid #eeeeee;
+  font-family: "Times New Roman", Times, serif;
+}
+tr:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.dxc {
+  margin: 0px 0px !important;
+  padding: 0px !important;
+}
+
+.fix {
+  position: sticky;
+  right: 0;
+  padding: 11px 16px;
+}
+.fixColumn {
+  position: sticky !important;
+  right: 0;
+  background-color: aqua;
+  width: 150px;
+  min-width: 150px;
+  
+}

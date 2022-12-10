@@ -58,7 +58,7 @@ function App() {
         <LoadingIndicator enabled={true} />
         <ZoomAndPan argumentAxis="both" />
         <CommonSeriesSettings argumentField="date" type="candlestick" />
-        <Size height={330} />
+        <Size height={400} />
         <Series
           color="#82c494"
           name=" "

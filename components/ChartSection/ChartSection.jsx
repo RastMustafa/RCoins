@@ -3,8 +3,8 @@ import Chart from "./Chart";
 import { Option, Select } from "@material-tailwind/react";
 function ChartSection() {
   return (
-    <div className="flex lg:flex-row flex-col  bg-slate-200  font-header  md:px-8 gap-12  mt-6  w-full   container mx-auto  py-5">
-      <div className=" w-auto   ">
+    <div className="flex lg:flex-row flex-col shadow-xl  bg-slate-200  font-header  md:px-8 gap-12  mt-6  w-full   container mx-auto  py-5">
+      <div className=" w-auto  px-4 ">
         <Select variant="static" label="Coins">
           <Option>Bitcoin</Option>
           <Option>Etherum</Option>
