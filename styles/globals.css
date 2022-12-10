@@ -11,7 +11,8 @@ table {
 }
 
 td {
-  height: 6rem;
+  height: auto !important;
+  
   border-bottom: 1px solid #eeeeee;
   text-align: center;
   padding: 8px;
@@ -42,5 +43,4 @@ tr:hover {
   background-color: aqua;
   width: 150px;
   min-width: 150px;
-  
 }

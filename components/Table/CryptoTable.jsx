@@ -94,65 +94,69 @@ function CryptoTable() {
   const { pageIndex, pageSize } = state;
   return (
     <>
-      <div className=" shadow-xl font-display  md:px-8  px-4  mt-6  w-full   container mx-auto  py-12">
-        <div className="w-full  flex flex-row justify-between gap-36 p-2 mb-4 h-12">
-          {/* ============ search box start ========== */}
-          <div className="w-24 grid-cols-1 font-display ">
-            <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-          </div>
-          {/* ============ search box end ========== */}
-
-          <div className="flex flex-row gap-12">
-            {/* ============ Catagories menu start ========== */}
-            <div className="   ">
-              <Dialoge allColumns={allColumns} />
-            </div>
-            {/* ============ Catagories menu end ========== */}
-
-            {/* ============ select pageNumber start ========== */}
-            <div className="!font-display">
-              <Select
-                variant="standard"
-                label="Select Version"
-                value={pageSize.toString()}
-                onChange={(e) => {
-                  setPageSize(Number(e));
-                }}
-              >
-                {[5, 10, 15].map((pageSize) => (
-                  <Option value={pageSize.toString()} key={pageSize}>
-                    Show {pageSize}
-                  </Option>
-                ))}
-              </Select>
-            </div>
-            {/* ============ select pageNumber start ========== */}
-          </div>
+      <div className="w-full border-b border-green-200 flex flex-col md:flex-row   container justify-between gap-12 md:gap-24 p-2font-display  md:px-8  px-4 pb-4  mx-auto mb-4 pt-12">
+        {/* ============ search box start ========== */}
+        <div className="w-24 grid-cols-1 font-display ">
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
+        {/* ============ search box end ========== */}
+
+        <div className="flex flex-row-reverse justify-between gap-6 md:flex-row ">
+          {/* ============ Catagories menu start ========== */}
+          <div className="   ">
+            <Dialoge allColumns={allColumns} />
+          </div>
+          <div></div>
+          {/* ============ Catagories menu end ========== */}
+
+          {/* ============ select pageNumber start ========== */}
+          <div className="  ">
+            <select
+              value={pageSize.toString()}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+              }}
+              className="bg-gray-50  
+               text-gray-900 text-sm  rounded-lg  block w-full p-2.5 shadow-md  border-1 border-black px-2 tracking-widest font-semibold   font-display"
+            >
+              {[5, 10, 15].map((pageSize) => (
+                <option className=" " value={pageSize.toString()} key={pageSize}>
+                  Show {pageSize}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* ============ select pageNumber start ========== */}
+        </div>
+      </div>
+      <div className=" font-display  border overflow-x-scroll  border-green-100 pt-4    shadow-xl z-0 container mx-auto ">
         <Styles>
-          <div {...getTableProps()} className="table sticky">
-            <div className="header">
+          <div {...getTableProps()} className="table text-center sticky !bg-white ">
+            <div className="header !bg-white">
               {headerGroups.map((headerGroup) => (
-                <div {...headerGroup.getHeaderGroupProps()} className="tr">
+                <div {...headerGroup.getHeaderGroupProps()} className="tr !bg-white">
                   {headerGroup.headers.map((column) => (
-                    <div key={column.id} {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
+                    <div
+                      key={column.id}
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                      className="th  !bg-white "
+                    >
                       {column.render("Header")}
                       <span>
-                       {column.isSorted ? column.isSortedDesc ? <AiOutlineArrowDown /> : <AiOutlineArrowDown /> : ""}
-                     </span>
+                        {column.isSorted ? column.isSortedDesc ? <AiOutlineArrowDown /> : <AiOutlineArrowDown /> : ""}
+                      </span>
                     </div>
-                 
                   ))}
                 </div>
               ))}
             </div>
-            <div {...getTableBodyProps()} className="body">
+            <div {...getTableBodyProps()} className="body !bg-white">
               {page.map((row) => {
                 prepareRow(row);
                 return (
-                  <div {...row.getRowProps()} className="tr">
+                  <div {...row.getRowProps()} className="tr  !bg-white">
                     {row.cells.map((cell) => (
-                      <div {...cell.getCellProps()} className="td">
+                      <div {...cell.getCellProps()} className="td  bg-white">
                         {cell.render("Cell")}
                       </div>
                     ))}
@@ -161,63 +165,24 @@ function CryptoTable() {
               })}
             </div>
           </div>
+          <div className="mx-auto h-14  bg-white shadow-xl border border-green-100 absolute flex items-center container   flex-row gap-4 justify-center w-full">
+            <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
+              {"<<"}
+            </button>
+            <button disabled={!canPreviousPage} onClick={() => previousPage()}>
+              Privious
+            </button>
+            <strong>
+              {pageIndex + 1} of {pageOptions.length}
+            </strong>{" "}
+            <button disabled={!canNextPage} onClick={() => nextPage()}>
+              Next
+            </button>
+            <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)}>
+              {">>"}
+            </button>
+          </div>{" "}
         </Styles>
-        {/* <table className="relative" {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup, i) => {
-              // headerGroup.headers.pop()
-              return (
-                <tr key={i} {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => {
-                    console.log(column);
-                    const fixColIndex = column.id === "id_placeholder" ? "fixColumn" : "";
-                    return (
-                      <th key={column.id} {...column.getHeaderProps(column.getSortByToggleProps())}>
-                        {column.render("Header")}
-                        <span>
-                          {column.isSorted ? column.isSortedDesc ? <AiOutlineArrowDown /> : <AiOutlineArrowDown /> : ""}
-                        </span>
-                      </th>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </thead>
-          <tbody {...getTableBodyProps}>
-            {page.map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr key={i} {...row.getRowProps()}>
-                  {row.cells.map((cell, i) => {
-                    return (
-                      <td key={i} {...cell.getCellProps}>
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table> */}
-        <div className="mx-auto mt-2 font-semibold flex flex-row gap-4 justify-center w-full">
-          <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
-            {"<<"}
-          </button>
-          <button disabled={!canPreviousPage} onClick={() => previousPage()}>
-            Privious
-          </button>
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>{" "}
-          <button disabled={!canNextPage} onClick={() => nextPage()}>
-            Next
-          </button>
-          <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)}>
-            {">>"}
-          </button>
-        </div>
       </div>
     </>
   );

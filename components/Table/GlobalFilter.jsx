@@ -11,6 +11,7 @@ function GlobalFilter({ filter, setFilter }) {
         variant="static"
         label="Search"
         placeholder="Search for coin"
+        color="teal"
       />
 
       {/* <input onChange={e=>setFilter(e.target.value)} value={filter|| ''} type="text" /> */}

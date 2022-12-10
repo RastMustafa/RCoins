@@ -13,7 +13,7 @@ export const Styles = styled.div`
 
     .th,
     .td {
-      padding: 5px;
+      padding: 1px;
       // border-bottom: 1px solid #ddd;
       // border-right: 1px solid #ddd;
       background-color: #fff;

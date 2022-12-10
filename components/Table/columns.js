@@ -2,14 +2,18 @@
 
 export const COLUMNS = [
   {
-    Header: "#",
-    accessor: "id",
+    Header: " ",
     sticky: "left",
-  },
-  {
-    Header: "Coin",
-    accessor: "coin_name",
-    sticky: "left",
+    columns: [
+      {
+        Header: "#",
+        accessor: "id",
+      },
+      {
+        Header: "Coin",
+        accessor: "coin_name",
+      },
+    ],
   },
   {
     Header: "Prices",
