@@ -12,7 +12,7 @@ module.exports = withMT({
     extend: {},
     backgroundImage: {
       hero: "url('/regesteration.png')",
-      hero2: "url('/bg-2.png')",
+      hero2: "url('/blob.png')",
      
     },
     fontFamily: {

@@ -12,7 +12,7 @@ table {
 
 td {
   height: auto !important;
-  
+
   border-bottom: 1px solid #eeeeee;
   text-align: center;
   padding: 8px;
@@ -43,4 +43,26 @@ tr:hover {
   background-color: aqua;
   width: 150px;
   min-width: 150px;
+}
+
+.spacer {
+  aspect-ratio: 460/200;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url("../public/blob0000.png");
+}
+.layer2 {
+  background-image: url("../public/blob0001.png");
+}
+.layer3 {
+  background-image: url("../public/blob0002.png");
+}
+.layer4 {
+  background-image: url("../public/blob0003.png");
 }

@@ -17,7 +17,7 @@ function Navbar() {
   const catagories = [explor, learn, individuals, businesses, company];
 
   return (
-    <nav className="flex font-header tracking-widest		 relative h-20 justify-center   border-b-2 border-teal-600    container mx-auto px-5 py-5">
+    <nav className="flex font-header tracking-widest		 relative h-20 justify-center z-20  border-b-2 border-teal-600    container mx-auto px-5 py-5">
       {/*========================== website logo START ==========================*/}
       <div className="w-20  rounded-full -z-10  top-4 mr-2  left-0 absolute">
         <Link href="/">

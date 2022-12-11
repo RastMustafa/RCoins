@@ -53,7 +53,7 @@ export const Styles = styled.div`
       }
 
       [data-sticky-last-left-td] {
-     box-shadow: 1px 1px  0.5px #ccc;
+     box-shadow: 1px 0px  0.5px #ccc;
       }
 
       [data-sticky-first-right-td] {

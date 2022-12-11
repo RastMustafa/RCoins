@@ -94,7 +94,7 @@ function CryptoTable() {
   const { pageIndex, pageSize } = state;
   return (
     <>
-      <div className="w-full border-b border-green-200 flex flex-col md:flex-row   container justify-between gap-12 md:gap-24 p-2font-display  md:px-8  px-4 pb-4  mx-auto mb-4 pt-12">
+      <div className="w-full  shadow-sm rounded-lg flex flex-col md:flex-row backdrop-blur-4xl bg-white bg-opacity-60	  container justify-between gap-12 md:gap-24 p-2 font-display  md:px-8  px-4 pb-4  mx-auto  pt-12">
         {/* ============ search box start ========== */}
         <div className="w-24 grid-cols-1 font-display ">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
@@ -116,8 +116,8 @@ function CryptoTable() {
               onChange={(e) => {
                 setPageSize(Number(e.target.value));
               }}
-              className="bg-gray-50  
-               text-gray-900 text-sm  rounded-lg  block w-full p-2.5 shadow-md  border-1 border-black px-2 tracking-widest font-semibold   font-display"
+              className=" 
+               text-gray-900 text-sm  rounded-lg  block w-full p-2.5 shadow-md  px-2 tracking-widest font-semibold   font-display"
             >
               {[5, 10, 15].map((pageSize) => (
                 <option className=" " value={pageSize.toString()} key={pageSize}>
@@ -129,12 +129,12 @@ function CryptoTable() {
           {/* ============ select pageNumber start ========== */}
         </div>
       </div>
-      <div className=" font-display  border overflow-x-scroll  border-green-100 pt-4    shadow-xl z-0 container mx-auto ">
+      <div className=" font-display   overflow-x-scroll    rounded-lg pt-4    shadow-xl z-0 container mx-auto ">
         <Styles>
-          <div {...getTableProps()} className="table text-center sticky !bg-white ">
-            <div className="header !bg-white">
+          <div {...getTableProps()} className="table  text-center sticky  ">
+            <div className="header py-4 !bg-white">
               {headerGroups.map((headerGroup) => (
-                <div {...headerGroup.getHeaderGroupProps()} className="tr !bg-white">
+                <div {...headerGroup.getHeaderGroupProps()} className="tr ">
                   {headerGroup.headers.map((column) => (
                     <div
                       key={column.id}
@@ -165,7 +165,7 @@ function CryptoTable() {
               })}
             </div>
           </div>
-          <div className="mx-auto h-14  bg-white shadow-xl border border-green-100 absolute flex items-center container   flex-row gap-4 justify-center w-full">
+          <div className="mx-auto h-14  bg-white shadow-xl  absolute flex items-center container   flex-row gap-4 justify-center w-full">
             <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
               {"<<"}
             </button>

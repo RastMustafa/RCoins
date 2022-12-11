@@ -42,7 +42,7 @@ export default function Dialoge({ allColumns }) {
   return (
     <Fragment>
       <Button
-        className="bg-gray-50 hover:shadow-gray-300 shadow-md text-black px-3 py-3  shadow-gray-300  tracking-widest font-semibold   font-display "
+        className="bg-white hover:shadow-gray-300 shadow-md text-black px-3 py-3  shadow-gray-300  tracking-widest font-semibold   font-display "
         onClick={handleOpen}
         variant=""
       >
