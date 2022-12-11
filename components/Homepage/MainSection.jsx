@@ -17,8 +17,8 @@ function MainSection() {
           </button>
         </div>
       </div>
-      <div className="img xl:p-0 mt-12 sm:mt-0 px-8 max-w-[30rem] justify-self-center lg:px-12 md:px-8  col-span-12  md:col-span-6 	">
-        <img src="/heroImage.png" alt="" />
+      <div className="img xl:p-0 my-16 sm:mt-0 px-8  w-[50rem] justify-self-center lg:px-12 md:px-8  col-span-12  md:col-span-6 	">
+        <img src="/hero1.jpg" alt="" />
       </div>
     </div>
   );

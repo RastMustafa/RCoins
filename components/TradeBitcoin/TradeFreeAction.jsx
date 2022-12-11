@@ -1,11 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import { AiFillCloseCircle } from "react-icons/Ai";
+import { BsDashLg } from "react-icons/Bs";
+
+AiFillCloseCircle;
 function TradeFreeAction() {
   return (
-    <div className="w-full relative container mx-auto py-12  ">
-      <div className="">
-        <div className="shadow-xl bg-white bg-opacity-70	 rounded-md  m-12 max-w-[45rem] border">
-          <div className="bg-yellow-200 text-center h-8">Header</div>
+    <div className="w-full  flex flex-row gap-12 container mx-auto py-12  ">
+      <div className="z-10">
+        <div className="shadow-xl bg-white bg-opacity-70	 rounded-md   max-w-[45rem] border">
+          <div className="bg-yellow-200   flex flex-row justify-end h-8">
+            <span className="mx-4 my-auto text-lg">
+              <BsDashLg />
+            </span>
+            <span className="mr-4 my-auto text-xl">
+              <AiFillCloseCircle />
+            </span>
+          </div>
 
           <div className=" p-6  flex text-center items-center flex-col justify-between  gap-12">
             <div className=" flex flex-row gap-6 items-center">
@@ -56,7 +67,9 @@ function TradeFreeAction() {
           </div>
         </div>
       </div>
-      <div className="bg-hero w-[30rem] top-0 p-12 right-0  absolute h-full bg-no-repeat  bg-[length:600px_850px]"></div>
+      <div className="right-12 my-auto -z-0 absolute">
+        <Image src="/hero2.jpg" width={1200} height={700} alt="" />
+      </div>
     </div>
   );
 }

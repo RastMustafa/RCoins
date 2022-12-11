@@ -11,7 +11,7 @@ module.exports = withMT({
   theme: {
     extend: {},
     backgroundImage: {
-      hero: "url('/try.png')",
+      hero: "url('/regesteration.png')",
       hero2: "url('/bg-2.png')",
      
     },
