@@ -2,10 +2,11 @@ import Navbar from "../components/Navbar/Navbar";
 import MainSection from "../components/Homepage/MainSection";
 import ChartSection from "../components/ChartSection/ChartSection";
 import CryptoTable from "../components/Table/CryptoTable";
+import TradeFreeAction from "../components/TradeBitcoin/TradeFreeAction";
 export default function Home() {
   return (
-    <div>
-      <div className="  ">
+    <div className="bg-gray-0">
+      {/* <div className="  ">
         <Navbar />
         <MainSection />
       </div>
@@ -14,7 +15,8 @@ export default function Home() {
       </div>
       <div className="mt-[52rem] px-4  lg:mt-[35rem]">
         <CryptoTable />
-      </div>
+      </div> */}
+      <TradeFreeAction/>
       <div className="mb-96"></div>
     </div>
   );

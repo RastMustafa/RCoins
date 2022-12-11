@@ -11,9 +11,9 @@ module.exports = withMT({
   theme: {
     extend: {},
     backgroundImage: {
-      hero: "url('/bg.png')",
+      hero: "url('/try.png')",
       hero2: "url('/bg-2.png')",
-      "footer-texture": "url('/img/footer-texture.png')",
+     
     },
     fontFamily: {
       header: ["Teko"],
