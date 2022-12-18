@@ -6,13 +6,13 @@ export const COLUMNS = [
     sticky: "left",
     columns: [
       {
-        Header: "#",
-        accessor: "id",
-      },
-      {
+        Header: "Market Cap_ank",
+        accessor: "market_cap_rank",
+      }
+      ,{
         Header: "Coin",
-        accessor: "coin_name",
-      },
+        accessor: "id",
+      }
     ],
   },
   {
@@ -20,15 +20,15 @@ export const COLUMNS = [
     columns: [
       {
         Header: "Price In $",
-        accessor: "PriceInDolar",
+        accessor: "current_price",
       },
       {
-        Header: "Price In BTC",
-        accessor: "PriceInBTC",
+        Header: "High 24h",
+        accessor: "high_24h",
       },
       {
-        Header: "Price In ETH",
-        accessor: "PriceInETH",
+        Header: "Low 24h",
+        accessor: "low_24h",
       },
     ],
   },
@@ -37,44 +37,44 @@ export const COLUMNS = [
     columns: [
       {
         Header: "1 h %",
-        accessor: "onehour",
+        accessor: "price_change_percentage_1h_in_currency",
       },
       {
         Header: "24 h % ",
-        accessor: "oneDay",
+        accessor: "price_change_percentage_24h",
       },
       {
         Header: " 7 d %",
-        accessor: "sevenDays",
+        accessor: "price_change_percentage_7d_in_currency",
       },
       {
         Header: "30 d %",
-        accessor: "oneMonth",
+        accessor: "price_change_percentage_30d_in_currency",
       },
       {
-        Header: "60 d %",
-        accessor: "towMonth",
+        Header: "200 d %",
+        accessor: "price_change_percentage_200d_in_currency",
       },
     ],
   },
   {
-    Header: "Volume",
+    Header: "Volume/Market Cap",
     columns: [
       {
         Header: "Volume ( 24h )",
-        accessor: "Volume24h",
+        accessor: "total_volume",
       },
       {
-        Header: " Volume ( 7d )",
-        accessor: "Volume7d",
+        Header: "Market Cap",
+        accessor: "market_cap",
       },
       {
-        Header: "Volume ( 30d )",
-        accessor: "Volume30d",
+        Header: "Market Cap ( 24h )",
+        accessor: "market_cap_change_24h",
       },
       {
-        Header: " Volume / Mcap",
-        accessor: "VolumeMcap",
+        Header: "Market Rate ( 24h )",
+        accessor: "market_cap_change_percentage_24h",
       },
     ],
   },
@@ -83,15 +83,15 @@ export const COLUMNS = [
     columns: [
       {
         Header: "Max Supply",
-        accessor: "maxSupply",
+        accessor: "max_supply",
       },
       {
         Header: "Total Supply",
-        accessor: "totalSupply",
+        accessor: "total_supply",
       },
       {
         Header: "Circulating Supply",
-        accessor: "circulatingSupply",
+        accessor: "circulating_supply",
       },
     ],
   },

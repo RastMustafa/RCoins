@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/jsx-key */
 import React, { useMemo } from "react";
+
 import {
   useTable,
   usePagination,
@@ -21,12 +22,14 @@ import { TableColsContext } from "../../utlites/tableContext";
 import { COLUMNS } from "./columns";
 import ChartCol from "./ChartCol";
 import { Styles } from "./TableStyles";
-function CryptoTable() {
+import MockData from "./MockData";
+function CryptoTable({ coinsData }) {
   const { btnSelect } = React.useContext(TableColsContext);
+
   // const { COLUMNS } = btnSelect;
 
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => coinsData, [coinsData]);
   const {
     getTableProps,
     getTableBodyProps,
@@ -51,16 +54,17 @@ function CryptoTable() {
       columns,
       data,
       initialState: {
+        pageSize: 5,
         hiddenColumns: [
-          "maxSupply",
-          "circulatingSupply",
-          "VolumeMcap",
-          "Volume30d",
-          "Volume7d",
-          "towMonth",
-          "PriceInBTC",
-          "PriceInETH",
-          "onehour",
+          "price_change_percentage_24h",
+          "price_change_percentage_7d_in_currency",
+          "price_change_percentage_30d_in_currency",
+          "price_change_percentage_200d_in_currency",
+          "market_cap",
+          "market_cap_change_24h",
+          "market_cap_change_percentage_24h",
+          "total_supply",
+          "circulating_supply",
           "sevenDays",
           "towMonth",
         ],
@@ -81,8 +85,8 @@ function CryptoTable() {
           id: "selection",
           Header: ({ getToggleAllRowsSelectedProps }) => <div>Chart</div>,
 
-          Cell: ({ row }) => (
-            <div className="max-w-[5rem] inline-block     overflow-hidden ">
+          Cell: (row) => (
+            <div className="overflow-hidden w-full    ">
               <ChartCol />
             </div>
           ),
@@ -92,11 +96,20 @@ function CryptoTable() {
   );
   const { globalFilter } = state;
   const { pageIndex, pageSize } = state;
+  MockData();
+  const coloredRows = ["1 h %", "24 h %", "7 d %", "30 d %", "200 d %", "Market Cap ( 24h )", "Market Rate ( 24h )"];
+  function isRed(cell) {
+    if (cell.value > 0 && coloredRows.includes(cell.column.Header)) {
+      return "text-green-400";
+    } else if (cell.value < 0 && coloredRows.includes(cell.column.Header)) {
+      return "text-red-400";
+    }
+  }
   return (
     <>
-      <div className="w-full  shadow-sm rounded-lg flex flex-col md:flex-row backdrop-blur-4xl bg-white bg-opacity-60	  container justify-between gap-12 md:gap-24 p-2 font-display  md:px-8  px-4 pb-4  mx-auto  pt-12">
+      <div className="w-full overflow-hidden  shadow-sm rounded-lg flex flex-col md:flex-row backdrop-blur-4xl bg-white bg-opacity-60	  container justify-between gap-12 md:gap-24 p-2  md:px-8  px-4 pb-4  mx-auto  pt-12">
         {/* ============ search box start ========== */}
-        <div className="w-24 grid-cols-1 font-display ">
+        <div className="w-24 grid-cols-1 font-body ">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         {/* ============ search box end ========== */}
@@ -117,7 +130,7 @@ function CryptoTable() {
                 setPageSize(Number(e.target.value));
               }}
               className=" 
-               text-gray-900 text-sm  rounded-lg  block w-full p-2.5 shadow-md  px-2 tracking-widest font-semibold   font-display"
+               text-gray-900 text-sm  rounded-lg  block w-full p-2.5 shadow-md  px-2 tracking-widest font-semibold font-display  "
             >
               {[5, 10, 15].map((pageSize) => (
                 <option className=" " value={pageSize.toString()} key={pageSize}>
@@ -129,7 +142,7 @@ function CryptoTable() {
           {/* ============ select pageNumber start ========== */}
         </div>
       </div>
-      <div className=" font-display   overflow-x-scroll    rounded-lg pt-4    shadow-xl z-0 container mx-auto ">
+      <div className=" font-body  scrollbar-hide overflow-x-scroll    rounded-lg pt-4    shadow-xl z-0 container mx-auto ">
         <Styles>
           <div {...getTableProps()} className="table  text-center sticky  ">
             <div className="header py-4 !bg-white">
@@ -156,8 +169,8 @@ function CryptoTable() {
                 return (
                   <div {...row.getRowProps()} className="tr  !bg-white">
                     {row.cells.map((cell) => (
-                      <div {...cell.getCellProps()} className="td  bg-white">
-                        {cell.render("Cell")}
+                      <div {...cell.getCellProps()} className="td mx-2 truncate overflow-hidden max-w-8  bg-white">
+                        <span className={`${isRed(cell)}`}>{cell.render("Cell")}</span>
                       </div>
                     ))}
                   </div>
@@ -165,37 +178,27 @@ function CryptoTable() {
               })}
             </div>
           </div>
-          <div className="mx-auto h-14  bg-white shadow-xl  absolute flex items-center container   flex-row gap-4 justify-center w-full">
-            <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
-              {"<<"}
-            </button>
-            <button disabled={!canPreviousPage} onClick={() => previousPage()}>
-              Privious
-            </button>
-            <strong>
-              {pageIndex + 1} of {pageOptions.length}
-            </strong>{" "}
-            <button disabled={!canNextPage} onClick={() => nextPage()}>
-              Next
-            </button>
-            <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)}>
-              {">>"}
-            </button>
-          </div>{" "}
         </Styles>
+      </div>
+      <div className=" h-14  bg-white shadow-xl mx-auto flex items-center container max-w-1/2    flex-row gap-4 justify-center ">
+        <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
+          {"<<"}
+        </button>
+        <button disabled={!canPreviousPage} onClick={() => previousPage()}>
+          Privious
+        </button>
+        <strong>
+          {pageIndex + 1} of {pageOptions.length}
+        </strong>{" "}
+        <button disabled={!canNextPage} onClick={() => nextPage()}>
+          Next
+        </button>
+        <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)}>
+          {">>"}
+        </button>
       </div>
     </>
   );
 }
 
 export default CryptoTable;
-/* 
-          watchlist 
-          portofolio
-          |
-          Cryptpocurncies
-          NFT
-          ....
-          searchbar 
-          Catagorise
-        */

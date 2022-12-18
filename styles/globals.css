@@ -66,3 +66,17 @@ tr:hover {
 .layer4 {
   background-image: url("../public/blob0003.png");
 }
+.hidlines {
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

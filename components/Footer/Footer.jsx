@@ -11,7 +11,7 @@ function Footer() {
     <>
       <div className=" container md:pb-36 font-display mx-auto gap-12 justify-center items-center lg:justify-between flex-col flex lg:flex-row ">
         <div className="flex flex-col">
-          <div className=" w-[30rem] mb-12 h-auto top-6">
+          <div className="max-w-[35rem] mb-12 h-auto top-6">
             <img className="" src="/hero3-WJx2cu3lj-transformed.png" alt="" />
           </div>
           <div className="border  bottom-[10rem] font-semibold  ">

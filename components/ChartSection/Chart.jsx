@@ -20,14 +20,11 @@ import Chart, {
   Size,
 } from "devextreme-react/chart";
 
-function App() {
+function OhlcChart({ coinId }) {
   const [dataSource, setDataSource] = useState(null);
-
   useEffect(() => {
     async function getData() {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=30"
-      );
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=usd&days=30`);
       const data = await res.json();
       if (!res) {
         throw Error("couldnt fetch ");
@@ -47,26 +44,18 @@ function App() {
       //  console.log(formatedData);
     }
     getData();
-  }, []);
-
+  }, [coinId]);
   if (!dataSource) {
     return <h1>Loading...</h1>;
   }
   return (
     <div className="w-full">
-      <Chart id="chart" title="Bitcoin" dataSource={dataSource}>
+      <Chart id="chart" title={coinId.toUpperCase()} dataSource={dataSource}>
         <LoadingIndicator enabled={true} />
         <ZoomAndPan argumentAxis="both" />
         <CommonSeriesSettings argumentField="date" type="candlestick" />
         <Size height={400} />
-        <Series
-          color="#82c494"
-          name=" "
-          openValueField="o"
-          highValueField="h"
-          lowValueField="l"
-          closeValueField="c"
-        >
+        <Series color="#82c494" name=" " openValueField="o" highValueField="h" lowValueField="l" closeValueField="c">
           {/* or "zoom" | "pan" | "none" */}
           <Reduction color="red" />
         </Series>
@@ -85,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default OhlcChart;

@@ -11,7 +11,7 @@ function MainSection() {
           Secured and easy to use.
         </h3>
         <div className="mt-4 sm:mx-12 font-display">
-          <button className="border-2  sm:text-lg border-emerald-800 md:font-bold hover:text-white transition-all duration-300 hover:bg-black rounded shadow-xl px-2.5 py-1 md:px-3 md:py-1 lg:px-6 lg:py-1.5 font-semibold">
+          <button className="border-2  sm:text-lg border-black md:font-bold hover:text-white transition-all duration-300 hover:bg-black rounded shadow-xl px-2.5 py-1 md:px-3 md:py-1 lg:px-6 lg:py-1.5 font-semibold">
             Trade Now
           </button>
         </div>

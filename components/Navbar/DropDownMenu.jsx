@@ -19,7 +19,7 @@ function DropDownMenu({ title, explorTabData }) {
             }, 200);
           }
         }}
-        className="text-gray-900 text-xl  hover:border-b-2  border-emerald-600 z-10  ml-4  cursor-pointer relative  hover:text-emerald-800 text font-semibold py-1 px-3 "
+        className="text-gray-900 text-lg font-display hover:border-b-2  border-emerald-600 z-10  ml-4  cursor-pointer relative  hover:text-emerald-800  font-semibold py-1 px-3 "
       >
         {title}
       </div>
@@ -35,7 +35,7 @@ function DropDownMenu({ title, explorTabData }) {
               setHoverOnTitle(false);
             }, 10);
           }}
-          className={`absolute  bg-white hover:z-0  animate-fade  animate-fadeOut border-emerald-600 border-2   rounded-xl text-xl top-[5.4rem] left-0 w-full  p-4   shadow-xl `}
+          className={`absolute  bg-white hover:z-0  animate-fade  animate-fadeOut border-yellow-50 border-4   rounded-xl text-xl top-[5.4rem] left-0 w-full  p-4   shadow-xl `}
         >
           <div className="flex flex-wrap mx-auto  ">
             {explorTabData.map((item) => {
@@ -45,7 +45,7 @@ function DropDownMenu({ title, explorTabData }) {
                   className=" hover:bg-gray-200 rounded-lg font-display transform transition-all duration-1500 ease-out  sm:w-[20rem] lg:min-w-[30rem] flex  flex-row  my-2 items-center p-2 gap-4 "
                 >
                   <img
-                    className=" border-2 w-12  p-1 rounded-full"
+                    className=" border-2 shadow border-yellow-500 w-12  p-1 rounded-full"
                     src={item.icon}
                     alt=""
                   />

@@ -44,12 +44,13 @@ export default function Dialoge({ allColumns }) {
       <Button
         className="bg-white hover:shadow-gray-300 shadow-md text-black px-3 py-3  shadow-gray-300  tracking-widest font-semibold   font-display "
         onClick={handleOpen}
-        variant=""
+        variant="standard"
       >
         Categories
       </Button>
       <div className="">
         <Dialog
+          variant="standard"
           open={open}
           handler={handleOpen}
           className=" sm:min-w-[27rem] md:min-w-[40rem]  sm:max-w-[20rem] min-w-full  "
