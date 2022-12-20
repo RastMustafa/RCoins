@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { AiFillCloseCircle } from "react-icons/Ai";
-import { BsDashLg } from "react-icons/Bs";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { BsDashLg } from "react-icons/bs";
 
 AiFillCloseCircle;
 function TradeFreeAction() {
