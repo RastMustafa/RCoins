@@ -1,8 +1,8 @@
 import React from "react";
-import { BsDashLg } from "react-icons/as";
+import { BsDashLg } from "react-icons/bs";
 import { AiFillCloseCircle, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
-import { FaLink } from "react-icons/aa";
+import { FaLink } from "react-icons/fa";
 
 function Footer() {
   return (
