@@ -13,7 +13,7 @@ import {
 } from "react-table";
 import { useSticky } from "react-table-sticky";
 
-import { AiOutlineArrowDown } from "react-icons/Ai";
+import { AiOutlineArrowDown } from "react-icons/ai";
 import GlobalFilter from "./GlobalFilter";
 import Dialoge from "./dialog";
 import { COLUMNS } from "./columns";
