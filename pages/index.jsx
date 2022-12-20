@@ -21,7 +21,7 @@ export default function Home() {
       </div>
 
       <h1 className="  text-2xl md:text-4xl xl:text-5xl  mb-24 mt-36 lg:mt-36 xl:mt-24 2xl:mt-0 xl:mb-12 w-full text-center px-12    font-semibold font-display ">
-        <span>Today's Cryptocurrency Prices by Market Cap</span>
+        <span>{`Today\n's Cryptocurrency Prices by Market Cap`}</span>
       </h1>
       <div className=" relative md:pb-[14rem] 2xl:h-[40rem] layer2 spacer lg:mt-12 mt-24  px-2  md:px-5 mx-0   w-full  ">
         <Suspense fallback={`Loading...`}>
