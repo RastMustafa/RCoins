@@ -20,14 +20,11 @@ import Chart, {
   Size,
 } from "devextreme-react/chart";
 
-function App() {
+function OhlcChart({ coinId }) {
   const [dataSource, setDataSource] = useState(null);
-
   useEffect(() => {
     async function getData() {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=30"
-      );
+      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=usd&days=30`);
       const data = await res.json();
       if (!res) {
         throw Error("couldnt fetch ");
@@ -47,26 +44,18 @@ function App() {
       //  console.log(formatedData);
     }
     getData();
-  }, []);
-
+  }, [coinId]);
   if (!dataSource) {
     return <h1>Loading...</h1>;
   }
   return (
     <div className="w-full">
-      <Chart id="chart" title="Bitcoin" dataSource={dataSource}>
+      <Chart id="chart" title={coinId.toUpperCase()} dataSource={dataSource}>
         <LoadingIndicator enabled={true} />
         <ZoomAndPan argumentAxis="both" />
         <CommonSeriesSettings argumentField="date" type="candlestick" />
-        <Size height={330} />
-        <Series
-          color="#82c494"
-          name=" "
-          openValueField="o"
-          highValueField="h"
-          lowValueField="l"
-          closeValueField="c"
-        >
+        <Size height={400} />
+        <Series color="#82c494" name=" " openValueField="o" highValueField="h" lowValueField="l" closeValueField="c">
           {/* or "zoom" | "pan" | "none" */}
           <Reduction color="red" />
         </Series>
@@ -77,7 +66,7 @@ function App() {
         <Crosshair enabled={true} color="#949494" width={1} dashStyle="dot">
           <Label visible={true} backgroundColor="#949494"></Label>
         </Crosshair>
-        <ValueAxis tickInterval={500}>
+        <ValueAxis tickInterval={0.001}>
           <Grid opacity={0.2} />
         </ValueAxis>
       </Chart>
@@ -85,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default OhlcChart;

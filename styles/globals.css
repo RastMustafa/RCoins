@@ -1,7 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Teko&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Teko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Teko&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td {
+  height: auto !important;
+
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+  padding: 2px;
+}
+
+thead {
+  height: 1rem;
+  border-bottom: 1px solid #eeeeee;
+  font-family: "Times New Roman", Times, serif;
+}
+tr:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.dxc {
+  margin: 0px 0px !important;
+  padding: 0px !important;
+}
+
+.fix {
+  position: sticky;
+  right: 0;
+  padding: 11px 16px;
+}
+.fixColumn {
+  position: sticky !important;
+  right: 0;
+  background-color: aqua;
+  width: 150px;
+  min-width: 150px;
+}
+
+.spacer {
+  aspect-ratio: 460/200;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url("../public/blob0000.png");
+}
+.layer2 {
+  background-image: url("../public/blob0001.png");
+}
+.layer3 {
+  background-image: url("../public/blob0002.png");
+}
+.layer4 {
+  background-image: url("../public/blob0003.png");
+}
+.hidlines {
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
