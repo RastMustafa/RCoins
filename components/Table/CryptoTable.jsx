@@ -26,8 +26,6 @@ import MockData from "./MockData";
 function CryptoTable({ coinsData }) {
   const { btnSelect } = React.useContext(TableColsContext);
 
-  // const { COLUMNS } = btnSelect;
-
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => coinsData, [coinsData]);
   const {
@@ -86,8 +84,9 @@ function CryptoTable({ coinsData }) {
           Header: ({ getToggleAllRowsSelectedProps }) => <div>Chart</div>,
 
           Cell: (row) => (
-            <div className="overflow-hidden w-full    ">
-              <ChartCol />
+            <div className="overflow-hidden w-full">
+              {console.log(row.cell.row.original.id)}
+              <ChartCol coinId={row.cell.row.original.id} />
             </div>
           ),
         },
@@ -96,7 +95,6 @@ function CryptoTable({ coinsData }) {
   );
   const { globalFilter } = state;
   const { pageIndex, pageSize } = state;
-  MockData();
   const coloredRows = ["1 h %", "24 h %", "7 d %", "30 d %", "200 d %", "Market Cap ( 24h )", "Market Rate ( 24h )"];
   function isRed(cell) {
     if (cell.value > 0 && coloredRows.includes(cell.column.Header)) {
@@ -152,7 +150,7 @@ function CryptoTable({ coinsData }) {
                     <div
                       key={column.id}
                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                      className="th  !bg-white "
+                      className="th max-w-8 !bg-white "
                     >
                       {column.render("Header")}
                       <span>
@@ -169,7 +167,7 @@ function CryptoTable({ coinsData }) {
                 return (
                   <div {...row.getRowProps()} className="tr  !bg-white">
                     {row.cells.map((cell) => (
-                      <div {...cell.getCellProps()} className="td mx-2 truncate overflow-hidden max-w-8  bg-white">
+                      <div {...cell.getCellProps()} className="td  truncate overflow-hidden max-w-8  bg-white">
                         <span className={`${isRed(cell)}`}>{cell.render("Cell")}</span>
                       </div>
                     ))}

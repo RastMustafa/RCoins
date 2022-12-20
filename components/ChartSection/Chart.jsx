@@ -66,7 +66,7 @@ function OhlcChart({ coinId }) {
         <Crosshair enabled={true} color="#949494" width={1} dashStyle="dot">
           <Label visible={true} backgroundColor="#949494"></Label>
         </Crosshair>
-        <ValueAxis tickInterval={500}>
+        <ValueAxis tickInterval={0.001}>
           <Grid opacity={0.2} />
         </ValueAxis>
       </Chart>

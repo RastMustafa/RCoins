@@ -44,7 +44,7 @@ export default function Dialoge({ allColumns }) {
       <Button
         className="bg-white hover:shadow-gray-300 shadow-md text-black px-3 py-3  shadow-gray-300  tracking-widest font-semibold   font-display "
         onClick={handleOpen}
-        variant="standard"
+        variant="text"
       >
         Categories
       </Button>

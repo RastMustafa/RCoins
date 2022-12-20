@@ -15,11 +15,11 @@ td {
 
   border-bottom: 1px solid #eeeeee;
   text-align: center;
-  padding: 8px;
+  padding: 2px;
 }
 
 thead {
-  height: 4rem;
+  height: 1rem;
   border-bottom: 1px solid #eeeeee;
   font-family: "Times New Roman", Times, serif;
 }

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^1.2.4",
+    "@tanstack/react-query": "^4.20.4",
+    "axios": "^1.2.1",
     "devextreme-react": "^22.1.6",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",

@@ -1,13 +1,17 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "@material-tailwind/react";
-import  TableContext  from "../utlites/tableContext";
+import TableContext from "../utlites/tableContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   return (
-    <TableContext>
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </TableContext>
+    <QueryClientProvider client={queryClient}>
+      <TableContext>
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </TableContext>
+    </QueryClientProvider>
   );
 }
 

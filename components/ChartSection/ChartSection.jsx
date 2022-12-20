@@ -2,34 +2,34 @@ import React from "react";
 import Chart from "./Chart";
 import { Option, Select } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+
+function isRed(value) {
+  if (value > 0) {
+    return "text-green-400";
+  } else {
+    return "text-red-400";
+  }
+}
+
 function ChartSection() {
   const [coinId, setCoinId] = useState("bitcoin");
   const [duration, setDuration] = useState("30");
   const [coinPrice, setCoinPrice] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["chartData"],
+    queryFn: () =>
+      fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinId}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-      );
+      ).then((res) => res.json()),
+  });
 
-      const data = await res.json();
-      if (!res) {
-        throw Error("coludnt fetch");
-      }
-      setCoinPrice(...data);
-    }
-    fetchData();
-  }, [coinId]);
-  function isRed(value) {
-    if (value > 0) {
-      return "text-green-400";
-    } else {
-      return "text-red-400";
-    }
+  if (isLoading) {
+    return <h1>Loading ... </h1>;
   }
-
-  if (!coinPrice) {
-    return <h1>is loading ....</h1>;
+  if (error) {
+    return <h1>Error ...</h1>;
   }
   return (
     <>
@@ -43,30 +43,30 @@ function ChartSection() {
           </Select>
           <div className="mt-4 py-4 text-display text-md grid grid-cols-2 text-xs sm:text-sm  font-semibold font-body lg:flex lg:flex-col gap-4 w-full">
             <div>
-              Price : <span className="font-bold text-md">${parseFloat(coinPrice.current_price).toFixed(4)}</span>
+              Price : <span className="font-bold text-md">${parseFloat(data[0]?.current_price).toFixed(4)}</span>
             </div>
             <div>
-              Market Cap(24) : <span className="font-bold text-md">${parseFloat(coinPrice.market_cap).toFixed(2)}</span>
+              Market Cap(24) : <span className="font-bold text-md">${parseFloat(data[0].market_cap).toFixed(2)}</span>
             </div>
             <div>
               Market cap change 24h :{" "}
-              <span className={`font-bold text-md + ${isRed(parseFloat(coinPrice.market_cap_change_24h))}`}>
-                ${parseFloat(coinPrice.market_cap_change_24h).toFixed(2).slice(1)}
+              <span className={`font-bold text-md + ${isRed(parseFloat(data[0].market_cap_change_24h))}`}>
+                ${parseFloat(data[0].market_cap_change_24h).toFixed(2).slice(1)}
               </span>
             </div>
             <div>
-              Volume 24h : <span className="font-bold text-md">${parseFloat(coinPrice.total_volume).toFixed(4)}</span>
+              Volume 24h : <span className="font-bold text-md">${parseFloat(data[0].total_volume).toFixed(4)}</span>
             </div>
             <div>
               Price Change 24h :{" "}
-              <span className={`font-bold text-md + ${isRed(parseFloat(coinPrice.price_change_24h))}`}>
-                ${parseFloat(coinPrice.price_change_24h).toFixed(4).slice(1)}
+              <span className={`font-bold text-md + ${isRed(parseFloat(data[0].price_change_24h))}`}>
+                ${parseFloat(data[0].price_change_24h).toFixed(4).slice(1)}
               </span>
             </div>
             <div>
               Change rate 24h :{" "}
-              <span className={`font-bold text-md + ${isRed(parseFloat(coinPrice.price_change_percentage_24h))}`}>
-                {parseFloat(coinPrice.price_change_percentage_24h).toFixed(4).slice(1)}
+              <span className={`font-bold text-md + ${isRed(parseFloat(data[0].price_change_percentage_24h))}`}>
+                {parseFloat(data[0].price_change_percentage_24h).toFixed(4).slice(1)}
               </span>
             </div>
           </div>
