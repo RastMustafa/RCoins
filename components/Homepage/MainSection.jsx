@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 function MainSection() {
   return (
     <div className="  font-header  flex lg:flex-row pt-8 flex-col   container mx-auto  ">

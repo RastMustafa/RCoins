@@ -1,11 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 import MainSection from "../components/Homepage/MainSection";
-import ChartSection from "../components/ChartSection/ChartSection";
-import CryptoTable from "../components/Table/CryptoTable";
-import MockData from "../components/Table/MockData";
 import TradeFreeAction from "../components/TradeBitcoin/TradeFreeAction";
 import Footer from "../components/Footer/Footer";
-
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 

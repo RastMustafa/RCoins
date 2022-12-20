@@ -8,11 +8,11 @@ export const COLUMNS = [
       {
         Header: "Market Cap_ank",
         accessor: "market_cap_rank",
-      }
-      ,{
+      },
+      {
         Header: "Coin",
         accessor: "id",
-      }
+      },
     ],
   },
   {
@@ -96,86 +96,3 @@ export const COLUMNS = [
     ],
   },
 ];
-// {
-//   Header: "24 h Chart",
-//   accessor: "chart24h",
-// },
-// {
-//   Header: "7 d Chart",
-//   accessor: "chart7d",
-// },
-// {
-//   Header: "30 d Chart",
-//   accessor: "chart30d",
-// },
-// {
-//   Header: "chart60d",
-//   accessor: "60 d Chart",
-// },
-// {
-//   Header: "90 d Chart",
-//   accessor: "chart90d",
-// },
-// {
-//   Header: "Max Supply",
-//   accessor: "maxSupply",
-// },
-// {
-//   Header: "Total Supply",
-//   accessor: "totalSupply",
-// },
-// {
-//   Header: "Circulating Supply",
-//   accessor: "circulatingSupply",
-// },
-
-// export const GROUPED_COULMNS = [
-//   {
-//     Header: "#",
-//     Footer: "Id",
-//     accessor: "id",
-//     disableFilters: true,
-//   },
-//   {
-//     Header: "Name",
-//     FooterL: "Name",
-//     columns: [
-//       {
-//         Header: "Name",
-//         Footer: "First Name",
-//         accessor: "first_name",
-//         // Filter:ColumnFilter
-//       },
-//       {
-//         Header: "Price",
-//         Footer: "Last Name",
-//         accessor: "last_name",
-//         // Filter:ColumnFilter
-//       },
-//     ],
-//   },
-//   {
-//     Header: "Info",
-//     Footer: "Info",
-//     columns: [
-//       {
-//         Header: "Date of Birth",
-//         Footer: "Date of Birth",
-//         accessor: "date_of_birth",
-//         // Filter:ColumnFilter
-//       },
-//       {
-//         Header: "Country",
-//         Footer: "Country",
-//         accessor: "country",
-//         // Filter:ColumnFilter
-//       },
-//       {
-//         Header: "Phone",
-//         Footer: "Phone",
-//         accessor: "phone",
-//         // Filter:ColumnFilter
-//       },
-//     ],
-//   },
-// ];
