@@ -1,62 +1,55 @@
-import React, { useEffect, useState } from "react";
-
+import { useQuery } from "@tanstack/react-query";
 import Chart, {
   CommonSeriesSettings,
   Series,
   Reduction,
   ArgumentAxis,
   Label,
-  Format,
   ValueAxis,
-  Title,
-  Legend,
-  Export,
-  Tooltip,
   ZoomAndPan,
   LoadingIndicator,
   Grid,
-  CommonAxisSettings,
   Crosshair,
   Size,
 } from "devextreme-react/chart";
 
 function OhlcChart({ coinId }) {
-  const [dataSource, setDataSource] = useState(null);
-  useEffect(() => {
-    async function getData() {
-      const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=usd&days=30`);
-      const data = await res.json();
-      if (!res) {
-        throw Error("couldnt fetch ");
-      }
-      const formatedData = [];
-      for (let i of data) {
-        const dataObj = {
-          date: new Date(i[0]),
-          l: i[3],
-          h: i[2],
-          o: i[1],
-          c: i[4],
-        };
-        formatedData.push(dataObj);
-      }
-      setDataSource(formatedData);
-      //  console.log(formatedData);
-    }
-    getData();
-  }, [coinId]);
-  if (!dataSource) {
-    return <h1>Loading...</h1>;
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["mainChartData"],
+    queryFn: () =>
+      fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/ohlc?vs_currency=usd&days=30`).then((res) => res.json()),
+  });
+
+  if (isLoading) {
+    return <h1>Loading ... </h1>;
   }
+  if (error) {
+    return <h1>Error ...</h1>;
+  }
+
+  const formateData = () => {
+    const formatedData = [];
+    for (let i of data) {
+      const dataObj = {
+        date: new Date(i[0]),
+        l: i[3],
+        h: i[2],
+        o: i[1],
+        c: i[4],
+      };
+      formatedData.push(dataObj);
+    }
+    return formatedData;
+  };
+
   return (
     <div className="w-full">
-      <Chart id="chart" title={coinId.toUpperCase()} dataSource={dataSource}>
+      <Chart id="chart" title={coinId.toUpperCase()} dataSource={formateData()}>
         <LoadingIndicator enabled={true} />
         <ZoomAndPan argumentAxis="both" />
         <CommonSeriesSettings argumentField="date" type="candlestick" />
         <Size height={400} />
         <Series color="#82c494" name=" " openValueField="o" highValueField="h" lowValueField="l" closeValueField="c">
-          {/* or "zoom" | "pan" | "none" */}
           <Reduction color="red" />
         </Series>
         <ArgumentAxis workdaysOnly={true}>

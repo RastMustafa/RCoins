@@ -26,7 +26,7 @@ function Navbar() {
             <span>C</span>
             <span>O</span>
             <span>I</span>
-            <span>N</span>{" "}
+            <span>N</span>
           </div>
         </Link>
       </div>

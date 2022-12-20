@@ -12,20 +12,14 @@ import {
   useBlockLayout,
 } from "react-table";
 import { useSticky } from "react-table-sticky";
-import MOCK_DATA from "./MOCK_DATA.json";
-import { Input } from "@material-tailwind/react";
-import { Select, Option } from "@material-tailwind/react";
+
 import { AiOutlineArrowDown } from "react-icons/ai";
 import GlobalFilter from "./GlobalFilter";
 import Dialoge from "./dialog";
-import { TableColsContext } from "../../utlites/tableContext";
 import { COLUMNS } from "./columns";
-import ChartCol from "./ChartCol";
+import ChartCol from "./ChartColumn";
 import { Styles } from "./TableStyles";
-import MockData from "./MockData";
 function CryptoTable({ coinsData }) {
-  const { btnSelect } = React.useContext(TableColsContext);
-
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => coinsData, [coinsData]);
   const {
@@ -78,14 +72,13 @@ function CryptoTable({ coinsData }) {
     (hooks) => {
       hooks.visibleColumns.push((columns) => [
         ...columns,
-        // Let's make a column for selection
+
         {
-          id: "selection",
+          id: "chartSelection",
           Header: ({ getToggleAllRowsSelectedProps }) => <div>Chart</div>,
 
           Cell: (row) => (
             <div className="overflow-hidden w-full">
-              {console.log(row.cell.row.original.id)}
               <ChartCol coinId={row.cell.row.original.id} />
             </div>
           ),
@@ -178,6 +171,7 @@ function CryptoTable({ coinsData }) {
           </div>
         </Styles>
       </div>
+      {/* pagination Menu */}
       <div className=" h-14  bg-white shadow-xl mx-auto flex items-center container max-w-1/2    flex-row gap-4 justify-center ">
         <button disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
           {"<<"}

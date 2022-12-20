@@ -4,6 +4,7 @@ import { Option, Select } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
+// color function
 function isRed(value) {
   if (value > 0) {
     return "text-green-400";
@@ -14,11 +15,10 @@ function isRed(value) {
 
 function ChartSection() {
   const [coinId, setCoinId] = useState("bitcoin");
-  const [duration, setDuration] = useState("30");
-  const [coinPrice, setCoinPrice] = useState();
 
+  // fetch data from api
   const { isLoading, error, data } = useQuery({
-    queryKey: ["chartData"],
+    queryKey: [`${coinId}1`],
     queryFn: () =>
       fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinId}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
