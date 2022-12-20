@@ -6,26 +6,12 @@ function DropDownMenu({ title, explorTabData }) {
   const [contol, setContorl] = useState(true);
   const [contol2, setContorl2] = useState(true);
 
-  function handleToggle() {
-    setTimeout(() => {
-      if (contol && contol2) {
-        console.log(contol);
-        setHoverOnTitle(false);
-      }
-    }, 1000);
-  }
-
   return (
     <div className=" hover:block    sm:flex">
       <div
-        onMouseEnter={() => {
-          setTimeout(() => {
-            setHoverOnTitle(true);
-            setContorl(true);
-            setContorl2(false);
-          }, 10);
+        onClick={() => {
+          setHoverOnTitle(!hoverOnTitle);
         }}
-        onMouseLeave={() => handleToggle()}
         className="text-gray-900 text-lg font-display hover:border-b-2  border-emerald-600 z-10  ml-4  cursor-pointer relative  hover:text-emerald-800  font-semibold py-1 px-3 "
       >
         {title}
